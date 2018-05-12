@@ -1,8 +1,8 @@
 version: 2
 jobs:
-    build:
-        docker:
-          - image: circleci/node:8.11.1
-         steps:
-             - checkout
-             - run: echo "something"
+  build:
+    docker:
+      - image: circleci/node:8.11.1
+    steps:
+      - checkout
+      - run: echo "trying an empty repo??SF?A?FSAF?AF?ASF?"
