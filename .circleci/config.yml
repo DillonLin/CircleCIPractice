@@ -3,6 +3,14 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.11.1
-    steps:
-      - checkout
-      - run: echo "trying an empty repo??SF?A?FSAF?AF?ASF?"
+     steps:
+       - checkout
+       - run:
+         name: Install AWS Command Line Interface
+         working_directory: /
+         command: |
+           sudo apt-get update
+           sudo apt-get install -y
+           python-pip python-dev
+           sudo pip install awscli
+           aws --version
