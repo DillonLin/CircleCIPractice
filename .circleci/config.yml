@@ -5,11 +5,8 @@ jobs:
       - image: circleci/node:8.11.1
     steps:
       - checkout
-      - run:
-        name: Install AWS Command Line Interface
-        command: |
-          sudo apt-get update
-          sudo apt-get install -y
-          python-pip python-dev
-          sudo pip install awscli
-          aws --version
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y
+      - run: python-pip python-dev
+      - run: sudo pip install awscli
+      - run: aws --version
