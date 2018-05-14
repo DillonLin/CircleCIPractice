@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/repo
     docker:
       - image: circleci/node:8.11.1
     steps:
@@ -9,4 +10,3 @@ jobs:
       - run: sudo apt-get install -y python-pip python-dev
       - run: sudo pip install awscli
       - run: aws --version
-      - run: aws deploy push --profile tawkdeployer --application-name tawkify-app --s3-location s3://tawkify-cd-revisions/tawkify_branch_$CIRCLE_BRANCH.zip --ignore-hidden-files --source ~/working_directory/tawkify-app
