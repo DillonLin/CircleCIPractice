@@ -13,4 +13,4 @@ jobs:
     working_directory: ~/CircleCIPractice/app
     steps:
       - checkout
-      run: - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3awscd --delete
+      - run: - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3awscd --delete
