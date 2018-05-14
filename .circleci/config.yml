@@ -9,11 +9,23 @@ jobs:
       - run: sudo apt-get install -y python-pip python-dev
       - run: sudo pip install awscli
       - run: aws --version
-  build:
-    working_directory: ~/app
-    docker:
-      - image: circleci/node:8.11.1
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm start
+deployment:
+  staging:
+    branch: master
+    codedeploy:
+      appname-1234:
+        application_root: /
+        region: us-east-1
+        revision_location:
+          revision_type: S3
+          s3_location:
+            bucket: my-bucket
+            key_pattern: appname-1234-{BRANCH}-{SHORT_COMMIT}
+        deployment_group: my-deployment-group
+
+workflows:
+  version: 2
+  one_and_two:
+    jobs:
+      - build
+      - deployment
