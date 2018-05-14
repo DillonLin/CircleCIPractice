@@ -6,7 +6,6 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get update
-      - run: sudo apt-get install -y
-      - run: python-pip python-dev
+      - run: sudo apt-get install -y python-pip python-dev
       - run: sudo pip install awscli
       - run: aws --version
