@@ -9,8 +9,8 @@ jobs:
       - run: sudo apt-get install -y python-pip python-dev
       - run: sudo pip install awscli
       - run: aws --version
-deployment:
-  prod:
-    branch: master
-    commands:
-      - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3awscd --delete
+  deployment:
+    working_directory: ~/CircleCIPractice/app
+    steps:
+      - checkout
+      run: - aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://s3awscd --delete
